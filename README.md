@@ -214,3 +214,7 @@ async def put_bob(bob_id: int, bob: BobSchema, db: AsyncSession = Depends(get_se
 ## 
 
 -- python -m uvicorn main:app para rodar...
+
+## dependencias 
+-- pip install pydantic-settings
+-- pip install jinja2

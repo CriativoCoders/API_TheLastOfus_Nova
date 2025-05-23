@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API the last Ofus</title>
+    <link rel="icon" type="image/png" href="images.png">
+</head>
+<body>
+    
+    <head>
     <title>The Last of Us</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
         }
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
+            margin: 50px auto;
+            padding: 100px;
+            background-color: #beb9b9;
+            border: 1px solid #eeeeee;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
@@ -22,7 +30,7 @@
         }
         .personagem {
             padding: 10px;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 4px solid #ffffff;
         }
         .personagem:last-child {
             border-bottom: none;
@@ -34,8 +42,8 @@
             border-radius: 10px;
         }
     </style>
-</head>
-<body>
+    </head>
+    <body>
     <div class="container">
         <h1>The Last of Us</h1>
         <ul class="personagens" id="personagens"></ul>
@@ -46,14 +54,14 @@
             <button type="submit">Adicionar</button>
         </form>
     </div>
-
+    
     <script>
         const personagensElement = document.getElementById('personagens');
         const form = document.getElementById('form');
         const nomeInput = document.getElementById('nome');
         const imagemUrlInput = document.getElementById('imagem_url');
         const descricaoInput = document.getElementById('descricao');
-
+    
         async function carregarPersonagens() {
             const response = await fetch('/personagens');
             const personagens = await response.json();
@@ -70,7 +78,7 @@
                 personagensElement.appendChild(personagemElement);
             });
         }
-
+    
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
             const nome = nomeInput.value;
@@ -88,7 +96,7 @@
             descricaoInput.value = '';
             carregarPersonagens();
         });
-
+    
         personagensElement.addEventListener('click', async (event) => {
             if (event.target.classList.contains('deletar')) {
                 const id = event.target.dataset.id;
@@ -98,7 +106,7 @@
                 carregarPersonagens();
             }
         });
-
+    
         carregarPersonagens();
     </script>
 </body>
